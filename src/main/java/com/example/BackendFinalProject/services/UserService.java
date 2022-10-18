@@ -66,7 +66,7 @@ public class UserService {
             throw UserException.registerUserFail();
         }
         Optional<UserEntity> userEntity = userRepository.findByUserUsername(loginUser.getUsername());
-        if (userEntity.isEmpty()){
+        if (userEntity == null){
             throw UserException.registerUserFail();
         }
         UserEntity user  = userEntity.get();
